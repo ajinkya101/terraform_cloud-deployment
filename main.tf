@@ -13,22 +13,9 @@ resource "azurerm_resource_group" "example" {
   location = "East US"
 }
 
-resource "azurerm_network_security_group" "main" {
-  name                = "acceptanceTestSecurityGroup1"
-  location            = azurerm_resource_group.example.location
-  resource_group_name = azurerm_resource_group.example.name
-
-  security_rule {
-    name                       = "port_80"
-    priority                   = 100
-    direction                  = "Inbound"
-    access                     = "Allow"
-    protocol                   = "Tcp"
-    source_port_range          = "*"
-    destination_port_range     = "80"
-    source_address_prefix      = "*"
-    destination_address_prefix = "*"
-  }
+module "module01" {
+  source  = "app.terraform.io/gowed/module01/nsg"
+  version = "0.0.1"
 }
 
 resource "azurerm_virtual_network" "main" {
@@ -44,6 +31,24 @@ resource "azurerm_subnet" "internal" {
   resource_group_name  = azurerm_resource_group.example.name
   virtual_network_name = azurerm_virtual_network.main.name
   address_prefixes     = ["10.30.2.0/24"]
+}
+
+resource "azurerm_network_security_group" "main" {
+  name                = "acceptanceTestSecurityGroup1"
+  location            = "East US"
+  resource_group_name = "Ajinkya-RG2"
+
+  security_rule {
+    name                       = "port_80"
+    priority                   = 100
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "80"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
 }
 
 resource "azurerm_subnet_network_security_group_association" "main" {
