@@ -1,4 +1,3 @@
-
 provider "azurerm" {
   version = "=2.20.0"
   features {}
@@ -7,6 +6,9 @@ provider "azurerm" {
 provider "azuread" {
   # Whilst version is optional, we /strongly recommend/ using it to pin the version of the Provider being used
   version = "=0.10.0"
+  client_id     = $client_id
+  client_secret = $client_secret
+  tenant_id     = $tenant_id
 }
 
 #Resources which will be created
