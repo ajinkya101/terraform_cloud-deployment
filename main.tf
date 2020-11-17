@@ -1,14 +1,10 @@
-provider "azuread" {
-  # Whilst version is optional, we /strongly recommend/ using it to pin the version of the Provider being used
-  version = "=0.10.0"
-  client_id     = var.client_id
-  client_secret = var.client_secret
-  tenant_id     = var.tenant_id
-}
-
 provider "azurerm" {
   version = "=2.20.0"
   features {}
+  client_id     = var.client_id
+  client_secret = var.client_secret
+  tenant_id     = var.tenant_id
+  subscription_id= var.subscription_id
 }
 #Resources which will be created
 # Create a resource group
