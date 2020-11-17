@@ -14,4 +14,6 @@ variable "tenant_id" { }
 
 variable "subscription_id" { }
 
-variable "location" {}
+variable "location" {
+	type = string
+}
