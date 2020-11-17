@@ -5,3 +5,9 @@ variable "prefix" {
 variable "vname" {
   default = "test-vm"
 }
+
+variable "client_id" { }
+
+variable "client_secret" { }
+
+variable "tenant_id" { }
