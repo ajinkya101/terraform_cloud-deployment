@@ -4,7 +4,7 @@ provider "azurerm" {
   client_id     = var.client_id
   client_secret = var.client_secret
   tenant_id     = var.tenant_id
-  subscription_id= "$subscription_id"
+  subscription_id= var.subscription_id
 }
 #Resources which will be created
 # Create a resource group
@@ -35,7 +35,7 @@ resource "azurerm_subnet" "internal" {
 
 resource "azurerm_network_security_group" "main" {
   name                = "acceptanceTestSecurityGroup1"
-  location            = "East US"
+  location            = "$location"
   resource_group_name = "Ajinkya-RG2"
 
   security_rule {
