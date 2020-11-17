@@ -1,8 +1,3 @@
-provider "azurerm" {
-  version = "=2.20.0"
-  features {}
-}
-
 provider "azuread" {
   # Whilst version is optional, we /strongly recommend/ using it to pin the version of the Provider being used
   version = "=0.10.0"
@@ -11,6 +6,10 @@ provider "azuread" {
   tenant_id     = var.tenant_id
 }
 
+provider "azurerm" {
+  version = "=2.20.0"
+  features {}
+}
 #Resources which will be created
 # Create a resource group
 resource "azurerm_resource_group" "example" {
