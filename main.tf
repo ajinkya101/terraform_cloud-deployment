@@ -35,7 +35,7 @@ resource "azurerm_subnet" "internal" {
 
 resource "azurerm_network_security_group" "main" {
   name                = "acceptanceTestSecurityGroup1"
-  location            = "$location"
+  location            = var.location
   resource_group_name = "Ajinkya-RG2"
 
   security_rule {
