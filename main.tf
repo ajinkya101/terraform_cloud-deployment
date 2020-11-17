@@ -107,6 +107,5 @@ terraform {
     container_name       = "tfstate1"
     key                  = "./terraform.tfstate"
     resource_group_name  = "Ajinkya-RG1"
-	sas_token = "?sv=2019-12-12&ss=b&srt=sco&sp=rwdlacx&se=2020-11-17T13:44:12Z&st=2020-11-17T05:44:12Z&spr=https&sig=t6ZWc61udw8u3jirLsAr%2BYET3b0FxH4Az9lj16QWd%2BQ%3D"
   }
 }
