@@ -10,7 +10,7 @@ provider "azurerm" {
 # Create a resource group
 resource "azurerm_resource_group" "example" {
   name     = "Ajinkya-RG2"
-  location = "East US"
+  location = var.location
 }
 
 module "module01" {
@@ -35,7 +35,7 @@ resource "azurerm_subnet" "internal" {
 
 resource "azurerm_network_security_group" "main" {
   name                = "acceptanceTestSecurityGroup1"
-  location            = var.location
+  location            = azurerm_resource_group.example.location
   resource_group_name = "Ajinkya-RG2"
 
   security_rule {
