@@ -104,8 +104,8 @@ resource "azurerm_virtual_machine" "main" {
 terraform {
   backend "azurerm" {
     storage_account_name = "store1822"
-    container_name       = "tfstate1"
-    key                  = "./terraform.tfstate"
+    container_name       = "tf-cloud01"
+    key                  = "terraform.tfstate"
     resource_group_name  = "Ajinkya-RG1"
   }
 }
