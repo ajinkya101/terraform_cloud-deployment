@@ -1,11 +1,8 @@
 provider "azurerm" {
   version = "=2.20.0"
   features {}
-  client_id     = "ec062261-da09-42ae-a3e6-b6ed2da18868"
-  client_secret = "~_ma-LT19KbLgl7kGanD1NiVb4d6uTZfB_"
-  tenant_id     = "1c8672ad-d9cc-4f59-b839-90be132d96ab"
-  subscription_id = "717d7ff0-8113-4eb4-a79a-fb0ea82657c4"
 }
+
 #Resources which will be created
 # Create a resource group
 resource "azurerm_resource_group" "example" {
